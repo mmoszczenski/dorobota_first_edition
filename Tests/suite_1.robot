@@ -1,6 +1,8 @@
 *** Settings ***
 Documentation     This is a test suite for Browser library.
-Resource          Resources/basic_keywords.resource
+# dodane # po ciwiczeniu z handlerem w Resource
+# Resource          Resources/basic_keywords.resource
+Resource          Resources/handler.resource
 
 Suite Setup
 Suite Teardown
@@ -143,6 +145,11 @@ Example Test Cases - Keyword with argument in name
     # ADMIN trafia jako arguemtn, ale cieżko znaleść keyword w resource file gdy jego nazwa bazuje na argumencie wpisanym "z reki"    
     Keyword with argument in name ADMIN
     Keyword with argument in name ${typu_str1} and Arguments    arg2_value
+
+Example Test Cases - from Handler Resource file
+    [Documentation]    This is the first test case.
+    [Tags]    smoke
+    Adv Sample Keyword with one default arguments    arg1_value
 
 *** Keywords ***
 First Keyword
