@@ -24,7 +24,7 @@ ${CHECK_VAR_SCOPE}    This is a variable in the test suite VARIABLES section.
 *** Test Cases ***
 Example Test Case - Simple Log
     [Documentation]    This is the first test case.
-    [Tags]    smoke
+    [Tags]    artur
     Log    Hello, World!
     Log    ${typu_str1}
     Log    ${typu_list}
@@ -37,7 +37,7 @@ Example Test Case - Simple Log
 
 Example Test Case - CHECK_VAR_SCOPE
     [Documentation]    This is the first test case.
-    [Tags]    smoke
+    [Tags]    smoke    artur
     # uruchomic ten test case 3 razy z różnmi komendami
     # python -m robot C:\Users\arturj\dorobota_first_edition\Tests\
     # python -m robot -V .\SUT\artur.py C:\Users\arturj\dorobota_first_edition\Tests\
