@@ -137,6 +137,13 @@ Example Test Case - First using keyword from resource file with RETURN
     ${return_value1}    ${return_value2}    First Keyword with one default arguments via Resource file With RETURN    arg1_value    
     Log    Return value: ${return_value1} ${return_value2}    
 
+Example Test Cases - Keyword with argument in name
+    [Documentation]    This is the first test case.
+    [Tags]    smoke
+    # ADMIN trafia jako arguemtn, ale cieżko znaleść keyword w resource file gdy jego nazwa bazuje na argumencie wpisanym "z reki"    
+    Keyword with argument in name ADMIN
+    Keyword with argument in name ${typu_str1} and Arguments    arg2_value
+
 *** Keywords ***
 First Keyword
     [Documentation]    This is the first keyword.
