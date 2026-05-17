@@ -3,29 +3,64 @@ Documentation     This is a resource file that includes other resource files for
 Library           SeleniumLibrary
 
 
+*** Variables ***
+${xpath_elements}    //h5[text()='Elements']
+
 *** Keywords ***
 Open Browser To Login Page
-    [Documentation]    This keyword opens the browser and navigates to the login page.
-    [Arguments]    ${browser}=chrome
-    SeleniumLibrary.Open Browser    https://demoqa.com    ${browser}
+    [Documentation]    Open Browser To Login Page
+    ...
+    ...    *Steps*
+    ...    1. Open Browser
+    ...    2. Maximize Browser Window
+    ...    3. Set Selenium Speed
+    ...
+    ...    *Arguments:*
+    ...    | Name | Description | Example |
+    ...    | ${url} | The URL of the login page | https://demoqa.com/ |
+    ...    | ${browser} | The browser to use | chrome |
+    ...    *Returns:*
+    ...    | Data | Example |
+    ...    | Nothing to return | None |
+    [Arguments]    ${url}    ${browser}=chrome
+    SeleniumLibrary.Open Browser    ${url}    ${browser}
     SeleniumLibrary.Maximize Browser Window
     SeleniumLibrary.Set Selenium Speed    0.5s
 
 Close Browser
-    [Documentation]    This keyword closes the browser.
+    [Documentation]    Close Browser
+    ...
+    ...    *Steps*
+    ...    1. Close Browser
+    ...    2. Maximize Browser Window
+    ...    3. Set Selenium Speed
+    ...
+    ...    *Returns:*
+    ...    | Data | Example |
+    ...    | Nothing to return | None | 
     SeleniumLibrary.Close Browser
 
 Main: Navigate To Elements Page
-    [Documentation]    This keyword navigates to the Elements page.
-    SeleniumLibrary.Click Element    xpath=//h5[text()='Elements']
+    [Documentation]    Main: Navigate To Elements Page
+    ...
+    ...    *Steps*
+    ...    1. Click Element To Element Page
+    ...
+    ...    *Returns:*
+    ...    | Data | Example |
+    ...    | Nothing to return | None | 
+    # Cleanup parametrów opcja 1, move to *** Varialbes ***
+    SeleniumLibrary.Click Element    xpath=${xpath_elements}
 
 Elements: Navigate To Text Box
     [Documentation]    This keyword navigates to the Text Box page.
-    SeleniumLibrary.Click Element    xpath=//span[text()='Text Box']
+    # Cleanup parametrów opcja 2, move to QADemo_xpath/text_box.resource
+    SeleniumLibrary.Click Element    xpath=${xpath_text_box}
 
 Navigate To Main Page
     [Documentation]    This keyword navigates to the main page.
-    SeleniumLibrary.Click Element    xpath=//*[@id="root"]/header/a/img
+    # Cleanup parametrów opcja 2, move to QADemo_xpath/main.resource
+    SeleniumLibrary.Click Element    xpath=${main_page_img}
 
 Text Box: Fill Form
     [Documentation]    This keyword fills the text box form with the provided data.
